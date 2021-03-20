@@ -53,12 +53,28 @@ import {
                 setProgIconState(false);
                 setSubmitted(false)
 
-                toast(errorMessage);
+                toast.error(errorMessage, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
 
             } else {
                 setProgIconState(false);
                 setSubmitted(false);
-                toast(data.message);
+                toast(data.message, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
                 // store to localStorage. I will change it to contextAPi later
                 localStorage.setItem("userData", JSON.stringify(data.data))
                 setTimeout(()=>{
@@ -72,7 +88,17 @@ import {
     return (
       <>
       {/* The toastify component */}
-      <ToastContainer/> {/* The material-ui container */}
+          <ToastContainer
+      position="top-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      /> {/* The material-ui container */}
         
         <Container component="main" className="" maxWidth="xs">
         
@@ -83,7 +109,7 @@ import {
             <Typography
               component="h1"
               variant="h5"
-              style={{ color: "rgba(0, 74, 74, 1)" }}
+              style={{ color: "#011b33" }}
             >
               Sign Into Your Account.
             </Typography>
@@ -107,6 +133,9 @@ import {
                     helperText={
                       fieldsErrors.email ? fieldsErrors.email.message : null
                     }
+                    error={Boolean(
+                      fieldsErrors?.email?.message
+                    )}
                   />
                 }
                 control={control}
@@ -137,6 +166,9 @@ import {
                     helperText={
                       fieldsErrors.password ? fieldsErrors.password.message : null
                     }
+                    error={Boolean(
+                      fieldsErrors?.password?.message
+                    )}
                   />
                 }
                 control={control}
@@ -172,7 +204,7 @@ import {
                   <Link
                     to="#"
                     variant="body2"
-                    style={{ color: "rgba(0, 74, 74, 1)",  textDecoration:"none" }}
+                    style={{ color: "#011b33",  textDecoration:"none" }}
                   >
                     Forgot password?
                   </Link>
@@ -181,7 +213,7 @@ import {
                   <Link
                     to="/auth/register/"
                     variant="body2"
-                    style={{ color: "rgba(0, 74, 74, 1)",  textDecoration:"none" }}
+                    style={{ color: "#011b33",  textDecoration:"none" }}
                   >
                     Don't have an account? Sign Up
                   </Link>

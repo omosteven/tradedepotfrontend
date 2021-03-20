@@ -113,6 +113,9 @@ const SignUpComponent = () => {
                             helperText={
                               fieldsErrors.fullName ? fieldsErrors.fullName.message : null
                             }
+                            error={Boolean(
+                              fieldsErrors?.fullName?.message
+                            )}
                           />
                         }
                         control={control}
@@ -143,6 +146,9 @@ const SignUpComponent = () => {
                             helperText={
                               fieldsErrors.email ? fieldsErrors.email.message : null
                             }
+                            error={Boolean(
+                              fieldsErrors?.email?.message
+                            )}
                           />
                         }
                         control={control}
@@ -173,6 +179,9 @@ const SignUpComponent = () => {
                             helperText={
                               fieldsErrors.password ? fieldsErrors.password.message : null
                             }
+                            error={Boolean(
+                              fieldsErrors?.password?.message
+                            )}
                           />
                         }
                         control={control}
@@ -202,6 +211,9 @@ const SignUpComponent = () => {
                             helperText={
                               fieldsErrors.address ? fieldsErrors.address.message : null
                             }
+                            error={Boolean(
+                              fieldsErrors?.address?.message
+                            )}
                           />
                         }
                         control={control}
@@ -231,6 +243,9 @@ const SignUpComponent = () => {
                             helperText={
                               fieldsErrors.country ? fieldsErrors.country.message : null
                             }
+                            error={Boolean(
+                              fieldsErrors?.country?.message
+                            )}
                           />
                         }
                         control={control}
@@ -260,22 +275,14 @@ const SignUpComponent = () => {
                         )}
                       </Button>
                       <Grid container>
-                        <Grid item xs>
-                          <Link
-                            to="#"
-                            variant="body2"
-                            style={{ color: "#011b33",  textDecoration:"none" }}
-                          >
-                            Forgot password?
-                          </Link>
-                        </Grid>
-                        <Grid item>
+                        
+                        <Grid item style={{marginLeft:"auto", marginRight:"auto"}}>
                           <Link
                             to="/auth/login/"
                             variant="body2"
                             style={{ color: "#011b33",  textDecoration:"none" }}
                           >
-                            Don't have an account? Sign Up
+                            Already have an account? Login
                           </Link>
                         </Grid>
                       </Grid>
