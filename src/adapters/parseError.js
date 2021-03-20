@@ -11,7 +11,7 @@ const parseError = errorObject => {
     const {request, response, message} = errorObject;
 
     if (response) {
-        if (response ?. data) {
+        if (response?.data) {
             const {data: {
                     message
                 }} = response;
