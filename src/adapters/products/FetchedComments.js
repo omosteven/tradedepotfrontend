@@ -29,9 +29,6 @@ const FetchedComments = (props) => {
             const {isError, data, errorMessage} = await fetchApi(dataObject, "GET", APIUrl);
 
             if (isError) {
-                alert("hey")
-
-                console.log("Not found")
                 toast.error(errorMessage, {
                     position: "bottom-center",
                     autoClose: 5000,
@@ -43,7 +40,7 @@ const FetchedComments = (props) => {
                 });
             } else {
                 if (data.data.length === 0) {
-                    toast.error('This product seems to have been deleted', {
+                    toast.info('Be the first person to post a comment', {
                         position: "bottom-center",
                         autoClose: false,
                         hideProgressBar: false,

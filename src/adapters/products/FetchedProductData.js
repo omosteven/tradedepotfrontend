@@ -10,9 +10,9 @@ import {ToastContainer, toast} from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-const FetchedProductData = () => {
+const FetchedProductData = (props) => {
 
-    const APIUrl = "https://tradedepotapi.herokuapp.com/product/fetchall/?address=ss&country=ff&city=55";
+    const APIUrl = "https://tradedepotapi.herokuapp.com/product/fetch/?productID=" + props.productID;
 
     const dataObject = {
         "address": "",
@@ -48,7 +48,7 @@ const FetchedProductData = () => {
 
         if (products.length !== 0) {
             return (<ProductInfoCard eachProduct={
-                    products[0]
+                    products
                 }
                 data-aos="zoom-in"
                 data-aos-offset="200"
