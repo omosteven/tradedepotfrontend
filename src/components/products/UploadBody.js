@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { useForm, Controller } from "react-hook-form";
 
+import {useHistory} from "react-router-dom";
+
 import {
     Grid,
     CardHeader,
@@ -61,8 +63,10 @@ const UploadBody = () => {
 
   const classes = useStyles();
     const userInfo = userData();
+    let history = useHistory();
 
-    const {handleSubmit, control, errors: fieldsErrors} = useForm({mode: "onChange"});
+
+    const {handleSubmit, control, errors: fieldsErrors, reset} = useForm({mode: "onChange"});
 
     const [isSubmitted, setSubmitted] = useState(false);
     const [progIconState, setProgIconState] = useState(false);
@@ -121,6 +125,12 @@ const UploadBody = () => {
                   draggable: true,
                   progress: undefined,
                   });
+reset();
+              
+setTimeout(()=>{
+  history.push("/");
+
+}, 4000)
               
             }
         })();

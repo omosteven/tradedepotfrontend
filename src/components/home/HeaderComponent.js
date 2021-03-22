@@ -23,11 +23,14 @@ import PublishIcon from '@material-ui/icons/Publish';
 // import the styled component here
 import useStyles from "../../styles/home/HeaderStyle";
 import {Link} from 'react-router-dom';
+import {userData} from "../../contexts/UserData";
+import { AccountBoxRounded } from '@material-ui/icons';
 
 
 const HeaderComponent = () => {
 
     const classes = useStyles();
+    const userInfo = userData();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -138,7 +141,36 @@ const HeaderComponent = () => {
                     <h5>Upload Product</h5>
                 </MenuItem>
             </Link>
-            {/* End of the Mobile Upload Product Icon */} </Menu>
+            {/* End of the Mobile Upload Product Icon */}
+            {userInfo !== null &&(
+                 <Link to="/auth/login/"
+                 style={
+                     {textDecoration: "none"}
+             }>
+                 <MenuItem>
+ 
+                 <IconButton aria-label="upload product" aria-controls="primary-search-account-menu" aria-haspopup="true" color="inherit">
+                        <AccountBoxRounded/>
+                    </IconButton>
+                    <h5>Log Out</h5>
+                 </MenuItem>
+             </Link>
+            )}
+            {userInfo === null &&(
+                 <Link to="/auth/login/"
+                 style={
+                     {textDecoration: "none"}
+             }>
+                 <MenuItem>
+ 
+                     <IconButton aria-label="upload product" aria-controls="primary-search-account-menu" aria-haspopup="true" color="inherit">
+                     <AccountBoxRounded/>
+                     </IconButton>
+                     <h5>Log In</h5>
+                 </MenuItem>
+             </Link>
+            )}
+             </Menu>
     );
 
     return (

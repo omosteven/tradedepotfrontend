@@ -29,7 +29,7 @@ import {
 
     let history = useHistory();
 
-    const {handleSubmit, control, errors: fieldsErrors} = useForm({mode: "onChange"});
+    const {handleSubmit, control, errors: fieldsErrors, reset} = useForm({mode: "onChange"});
 
 
     const [isSubmitted, setSubmitted] = useState(false);
@@ -76,7 +76,9 @@ import {
                   progress: undefined,
                   });
                 // store to localStorage. I will change it to contextAPi later
-                localStorage.setItem("userData", JSON.stringify(data.data))
+                localStorage.setItem("userData", JSON.stringify(data.data));
+                reset();
+
                 setTimeout(()=>{
                   history.push("/");
 

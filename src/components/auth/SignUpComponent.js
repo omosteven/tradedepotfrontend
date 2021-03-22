@@ -29,7 +29,7 @@ const SignUpComponent = () => {
 
     let history = useHistory();
 
-    const {handleSubmit, control, errors: fieldsErrors} = useForm({mode: "onChange"});
+    const {handleSubmit, control, errors: fieldsErrors, reset} = useForm({mode: "onChange"});
 
 
     const [isSubmitted, setSubmitted] = useState(false);
@@ -76,6 +76,8 @@ const SignUpComponent = () => {
                   draggable: true,
                   progress: undefined,
                   });
+                  reset();
+                
                 setTimeout(()=>{
                   history.push("/auth/login/");
 
