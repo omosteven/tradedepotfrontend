@@ -8,8 +8,9 @@ const FooterComponent = () => {
         <>
             <AppBar position="static" color="primary"
                 style={
-                    {background: "#011b33"}
+                    {background: "#ff8d06"}
             }>
+
                 <Container>
                     <Toolbar>
                         <Typography variant="body1" color="inherit"

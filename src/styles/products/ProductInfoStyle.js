@@ -1,21 +1,28 @@
 import {fade, makeStyles} from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-    root: { // flexGrow: 1,
-        marginTop: "1em",
-        width: "90%",
-        marginLeft: "auto",
-        marginRight: "auto"
-
+const useStyles = makeStyles(theme => ({
+    root: {
+        marginTop: "4em",
+        marginBottom: "4em",
+        background: "whitesmoke",
+        width: "95%",
+        marginLeft: "2.5%"
     },
-    card: { // maxWidth: 345
-
-    },
-    cardContainer: {
-        width: "50%"
+    gridCard: {
+        color: "#011b33"
     },
     media: {
         height: 201
+    },
+    gridColor: {
+        color: "#011b33"
+    },
+    avatar: {
+        fontSize: "2em",
+        color: "rgba(6, 74, 119, 1)"
+    },
+    formTextField: {
+        color: "#011b33"
     },
     paper: {
         width: "95%",
@@ -37,14 +44,7 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: fade("#ff8d06", 0.7)
         },
         float: "right"
-    },
-
-    iconColor: {
-        color: "#ff8d06",
-        '&:focus': {
-            backgroundColor: fade("#ff8d06", 0.7)
-        }
     }
 }));
 
-export default useStyles;
+export default useStyles

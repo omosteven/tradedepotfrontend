@@ -84,7 +84,7 @@ const UploadBody = () => {
         formData.append('token', userInfo.token);
         formData.append('email_of_uploadedBy', userInfo.email);
         formData.append('productName',dataObject.productName);
-        formData.append('productPrice', dataObject.productPrice);
+        formData.append('productPrice', "N" + dataObject.productPrice);
         formData.append('productImg',productFile[0]);
         formData.append('address', dataObject.address);
         formData.append('country', dataObject.country);
@@ -98,13 +98,29 @@ const UploadBody = () => {
                 setProgIconState(false);
                 setSubmitted(false)
 
-                toast(errorMessage);
+                toast.error(errorMessage, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
 
 
             } else {
                 setProgIconState(false);
                 setSubmitted(false);
-                toast(data.message);
+                toast(data.message, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
               
             }
         })();
@@ -114,7 +130,17 @@ const UploadBody = () => {
         <>
 
         {/* The toastify component */}
-        <ToastContainer/> {/* The material-ui container */}
+        <ToastContainer
+      position="top-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      /> {/* The material-ui container */}
           <Container className={classes.root}>
               <Grid container spacing={4} justify="center">
 
@@ -294,6 +320,7 @@ const UploadBody = () => {
                                 <TextField
                                   variant="outlined"
                                   margin="normal"
+                                  type="number"
                                   required
                                   fullWidth
                                   label="Price (Naira)"

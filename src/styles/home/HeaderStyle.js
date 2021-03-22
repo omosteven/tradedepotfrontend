@@ -4,15 +4,15 @@ const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1
     },
-    appBar : {
-        background:"#ff8d06"
+    appBar: {
+        background: "#ff8d06"
     },
     menuButton: {
         marginRight: theme.spacing(2)
     },
     title: {
         display: 'none',
-        fontWeight:"bold",
+        fontWeight: "bold",
         [theme.breakpoints.up('sm')]: {
             display: 'block'
         }
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
         pointerEvents: 'none',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     inputRoot: {
         color: 'inherit'

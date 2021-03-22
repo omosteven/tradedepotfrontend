@@ -53,13 +53,29 @@ const SignUpComponent = () => {
                 setProgIconState(false);
                 setSubmitted(false)
 
-                toast(errorMessage);
+                toast.error(errorMessage, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
 
 
             } else {
                 setProgIconState(false);
                 setSubmitted(false);
-                toast(data.message);
+                toast(data.message, {
+                  position: "top-center",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
                 setTimeout(()=>{
                   history.push("/auth/login/");
 
@@ -71,7 +87,17 @@ const SignUpComponent = () => {
     return (
 
         <> {/* The toastify component */}
-            <ToastContainer/> {/* The material-ui container */}
+                 <ToastContainer
+      position="top-center"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      />{/* The material-ui container */}
             <Container component="main" className="" maxWidth="xs">
 
                 <div className={

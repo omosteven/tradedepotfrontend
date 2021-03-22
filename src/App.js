@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import {Login, SignUp} from "./pages/auth/";
 import {Home} from "./pages/home";
-import {UploadPage} from "./pages/products";
+import {ProductPage, UploadPage} from "./pages/products";
 
 const App = () => {
     return (
@@ -17,6 +17,8 @@ const App = () => {
                         component={SignUp}/>
                     <Route exact path="/products/upload/"
                         component={UploadPage}/>
+                    <Route exact path="/products/*"
+                        component={ProductPage}/>
                 </Switch>
             </Router>
         </div>
