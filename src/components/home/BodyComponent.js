@@ -13,6 +13,7 @@ import AOS from "aos";
 import useStyles from "../../styles/home/BodyStyle";
 
 import FetchedRecentData from "../../adapters/home/FetchedRecentData";
+import {userData} from "../../contexts/UserData";
 
 const BodyComponent = () => {
     AOS.init();
@@ -24,6 +25,8 @@ const BodyComponent = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+  const userInfo = userData();
 
     return (<>
 
@@ -37,7 +40,7 @@ const BodyComponent = () => {
                     classes.iconColor
                 }
                 icon={<RestoreIcon/>}/>
-            <BottomNavigationAction label="Favorites" value="favorites"
+            <BottomNavigationAction label="Reviews" value="favorites"
                 className={
                     classes.iconColor
                 }
@@ -61,7 +64,7 @@ const BodyComponent = () => {
                     value === "favorites" && (<FetchedRecentData city="" sort="comments"/>)
                 }
                     {
-                    value === "nearby" && (<FetchedRecentData city="Lagos" sort=""/>)
+                    value === "nearby" && (<FetchedRecentData city={userInfo.city} sort=""/>)
                 }
                     {
                     value === "recents" && (<FetchedRecentData city="" sort=""/>)

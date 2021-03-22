@@ -87,12 +87,25 @@ const ProductInfo = (props) => {
     const [progIconState, setProgIconState] = useState(false);
 
     const APIUrl = "https://tradedepotapi.herokuapp.com/product/comments/publish/";
-  
+
     const onSubmit = data => { // set the response message to null
 
-        setProgIconState(true);
-        setSubmitted(true);
 
+        if(userInfo === null){
+          toast.error("You must be logged to post a comment", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+        }else{
+
+          setProgIconState(true);
+          setSubmitted(true);
+   
         const dataObject = data;
 
         dataObject.productID = productID;
@@ -120,10 +133,12 @@ const ProductInfo = (props) => {
                   progress: undefined,
                   });
 
-
             } else {
                 setProgIconState(false);
                 setSubmitted(false);
+                // refresh page
+                window.location.reload(false);
+
                 toast(data.message, {
                   position: "top-center",
                   autoClose: 5000,
@@ -136,6 +151,7 @@ const ProductInfo = (props) => {
               
             }
         })();
+      }
     };
 
     return (

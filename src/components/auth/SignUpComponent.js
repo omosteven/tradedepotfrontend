@@ -130,7 +130,7 @@ const SignUpComponent = () => {
                         as={
                           <TextField
                             variant="outlined"
-                            margin="normal"
+                            style={{marginBottom:"1em"}}
                             required
                             fullWidth
                             label="Fullname"
@@ -163,10 +163,10 @@ const SignUpComponent = () => {
                         as={
                           <TextField
                             variant="outlined"
-                            margin="normal"
+                            style={{marginBottom:"1em"}}
                             required
                             fullWidth
-                            label="Email Address"
+                            label="Email city"
                             name="email"
                             autoComplete="email"
                             helperText={
@@ -195,7 +195,7 @@ const SignUpComponent = () => {
                         as={
                           <TextField
                             variant="outlined"
-                            margin="normal"
+                            style={{marginBottom:"1em"}}
                             required
                             fullWidth
                             label="Password"
@@ -224,21 +224,21 @@ const SignUpComponent = () => {
                         }}
                       />
                         <Controller
-                        name="address"
+                        name="city"
                         as={
                           <TextField
                             variant="outlined"
-                            margin="normal"
+                            style={{marginBottom:"1em"}}
                             required
                             fullWidth
-                            label="Address(City, State)"
-                            name="address"
-                            autoComplete="Address"
+                            label="City"
+                            name="city"
+                            autoComplete="City"
                             helperText={
-                              fieldsErrors.address ? fieldsErrors.address.message : null
+                              fieldsErrors.city ? fieldsErrors.city.message : null
                             }
                             error={Boolean(
-                              fieldsErrors?.address?.message
+                              fieldsErrors?.city?.message
                             )}
                           />
                         }
@@ -247,11 +247,43 @@ const SignUpComponent = () => {
                         rules={{
                           required: {
                             value: true,
-                            message: "This Address field cannot be empty"
+                            message: "This City field cannot be empty"
                           },
                           minLength: {
-                            value: 5,
-                            message: "The entered Address is too short."
+                            value: 2,
+                            message: "The entered City is too short."
+                          }
+                        }}
+                      />
+                       <Controller
+                        name="state"
+                        as={
+                          <TextField
+                            variant="outlined"
+                            style={{marginBottom:"1em"}}
+                            required
+                            fullWidth
+                            label="State"
+                            name="state"
+                            autoComplete="State"
+                            helperText={
+                              fieldsErrors.state ? fieldsErrors.state.message : null
+                            }
+                            error={Boolean(
+                              fieldsErrors?.state?.message
+                            )}
+                          />
+                        }
+                        control={control}
+                        defaultValue=""
+                        rules={{
+                          required: {
+                            value: true,
+                            message: "This State field cannot be empty"
+                          },
+                          minLength: {
+                            value: 2,
+                            message: "The entered State is too short."
                           }
                         }}
                       />
@@ -260,7 +292,7 @@ const SignUpComponent = () => {
                         as={
                           <TextField
                             variant="outlined"
-                            margin="normal"
+                            style={{marginBottom:"1em"}}
                             required
                             fullWidth
                             label="Country"
@@ -282,7 +314,7 @@ const SignUpComponent = () => {
                             message: "This Country field cannot be empty"
                           },
                           minLength: {
-                            value: 5,
+                            value: 2,
                             message: "The entered Country is too short."
                           }
                         }}

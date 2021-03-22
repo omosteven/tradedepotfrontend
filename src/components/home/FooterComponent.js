@@ -8,7 +8,7 @@ const FooterComponent = () => {
         <>
             <AppBar position="static" color="primary"
                 style={
-                    {background: "#ff8d06"}
+                    {background: "#ff8d06",marginTop:"10vh"}
             }>
 
                 <Container>

@@ -75,9 +75,8 @@ const HeaderComponent = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}>
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}
-                to="/products/upload/">
-                <Link style={
+            <MenuItem onClick={handleMenuClose}>
+                <Link to="/products/upload/" style={
                     {textDecoration: "none"}
                 }>
                     Upload Product</Link>

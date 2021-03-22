@@ -201,8 +201,7 @@ import {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link
-                    to="#"
+                  <Link to="/auth/password/"
                     variant="body2"
                     style={{ color: "#011b33",  textDecoration:"none" }}
                   >
